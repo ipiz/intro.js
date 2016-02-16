@@ -946,22 +946,20 @@
 
       tooltipLayer.appendChild(buttonsLayer);
 
-      //set proper position
-      _placeTooltip.call(self, targetElement.element, tooltipLayer, arrowLayer, helperNumberLayer);
-    }
-
-    //set proper position also on window resize for responsive sites
-    self._onResize = function () {
+      //set proper position also on window resize for responsive sites
+      self._onResize = function () {
         _setHelperLayerPosition.call(self, document.querySelector('.introjs-helperLayer'));
         _setHelperLayerPosition.call(self, document.querySelector('.introjs-tooltipReferenceLayer'));
-        if (targetElement.element && tooltipLayer && arrowLayer) {
-            _placeTooltip.call(self, targetElement.element, tooltipLayer, arrowLayer, helperNumberLayer);
-        }
-    }
-    if (window.addEventListener) {
+        _placeTooltip.call(self, targetElement.element, tooltipLayer, arrowLayer, helperNumberLayer);
+      }
+      if (window.addEventListener) {
         window.addEventListener('resize', self._onResize, true);
-    } else if (document.attachEvent) {
+      } else if (document.attachEvent) {
         document.attachEvent('onresize', self._onResize);
+      }
+
+      //set proper position
+      _placeTooltip.call(self, targetElement.element, tooltipLayer, arrowLayer, helperNumberLayer);
     }
     
     //disable interaction
