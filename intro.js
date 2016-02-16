@@ -808,6 +808,18 @@
         }
       }, 350);
 
+      //set proper position also on window resize for responsive sites
+      self._onResize = function () {
+          _setHelperLayerPosition.call(self, document.querySelector('.introjs-helperLayer'));
+          _setHelperLayerPosition.call(self, document.querySelector('.introjs-tooltipReferenceLayer'));
+          _placeTooltip.call(self, targetElement.element, oldtooltipContainer, oldArrowLayer, oldHelperNumberLayer);
+      }
+      if (window.addEventListener) {
+          window.addEventListener('resize', self._onResize, true);
+      } else if (document.attachEvent) {
+          document.attachEvent('onresize', self._onResize);
+      }
+
     } else {
       var helperLayer       = document.createElement('div'),
           referenceLayer    = document.createElement('div'),
