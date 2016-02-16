@@ -461,7 +461,7 @@
 
     tooltipLayer.className = ('introjs-tooltip ' + tooltipCssClass).replace(/^\s+|\s+$/g, '');
 
-    currentTooltipPosition = this._introItems[this._currentStep].position;
+    currentTooltipPosition = this._introItems[this._currentStep].position || 'auto';
     if ((currentTooltipPosition == "auto" || this._options.tooltipPosition == "auto")) {
       if (currentTooltipPosition != "floating") { // Floating is always valid, no point in calculating
         currentTooltipPosition = _determineAutoPosition.call(this, targetElement, tooltipLayer, currentTooltipPosition);
