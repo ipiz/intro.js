@@ -476,6 +476,7 @@
 
         var tooltipLayerStyleLeft = 15;
         _checkRight(targetOffset, tooltipLayerStyleLeft, tooltipOffset, windowSize, tooltipLayer);
+        tooltipLayer.style.left = '0px';
         tooltipLayer.style.bottom = (targetOffset.height +  20) + 'px';
         break;
       case 'right':
@@ -613,7 +614,7 @@
       _removeEntry(possiblePositions, "top");
     } else {
       // Check for space below
-      if ((targetOffset.height + targetOffset.top + tooltipHeight) > windowSize.height) {
+        if ((targetOffset.height + targetOffset.top + tooltipHeight) > document.body.clientHeight) {
         _removeEntry(possiblePositions, "bottom");
       }
 
